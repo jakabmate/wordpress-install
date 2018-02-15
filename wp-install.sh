@@ -1,10 +1,11 @@
 #!/bin/bash
-cd ~
-mkdir ansible-wordpress && cd ansible-wordpress
-touch playbook.yml
-touch hosts
-mkdir roles && cd roles
-ansible-galaxy init server
-ansible-galaxy init php
-ansible-galaxy init mysql
-ansible-galaxy init wordpress
+ sudo apt-get update
+    sudo apt-get install software-properties-common
+    sudo apt-add-repository ppa:ansible/ansible
+    sudo apt-get update
+    sudo apt-get install ansible
+    git clone https://github.com/andreipak/wordpress-ansible.git
+    cd wordpress-ansible
+    sudo ansible-playbook playbook.yml -i hosts -e mysql_root_password=#password#
+    clear
+echo Siker!
